@@ -48,3 +48,42 @@ int print_str(va_list argument)
 
 	return (strPrintCount);
 }
+
+/**
+ * print_int - Print integer numbers (int)
+ * @argument: Argument integers to be printed
+ *
+ * Return: Number of integers printed
+ */
+int print_int(va_list argument)
+{
+	int integer, div, intPrintCount;
+	unsigned int number;
+
+	integer = va_arg(argument, int);
+	div = 1;
+	intPrintCount = 0;
+	if (integer < 0)
+	{
+		intPrintCount += _putchar('-');
+		number = (-1) * integer;
+	}
+	else
+	{
+		number = integer;
+	}
+
+	while (number / div > 9)
+	{
+		div *= 10;
+	}
+
+	while (div != 0)
+	{
+		intPrintCount += _putchar('0' + number / div);
+		number %= div;
+		div /= 10;
+	}
+
+	return (intPrintCount);
+}

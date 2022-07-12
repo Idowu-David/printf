@@ -34,5 +34,5 @@ int validate_format(const char *format, va_list arg, formatType *specStruct);
 /* Type Print Functions */
 int print_char(va_list argument);
 int print_str(va_list argument);
-
+int print_int(va_list argument);
 #endif

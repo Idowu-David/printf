@@ -46,3 +46,31 @@ int print_bin(va_list argument)
 
 	return (binPrtCount);
 }
+
+/**
+ * print_revStr - Print string in reverse (rev)
+ * @argument: Argument string to be revered
+ *
+ * Return: Number of reversed strings printed
+ */
+int  print_revStr(va_list argument)
+{
+	int locIndex, revStrPrtCount;
+	char *string;
+
+	string = va_arg(argument, char *);
+	locIndex = revStrPrtCount = 0;
+	while (string[locIndex] != '\0')
+	{
+		locIndex++;
+	}
+	revStrPrtCount = locIndex;
+	locIndex--;
+	while (locIndex >= 0)
+	{
+		_putchar(string[locIndex]);
+		locIndex--;
+	}
+
+	return (revStrPrtCount);
+}

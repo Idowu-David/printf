@@ -13,3 +13,7 @@
 - GitHub: [@praisespjmt](https://github.com/PraisesPJMT)
 - Twitter: [@praisespjmt](https://twitter.com/PraisesPJMT)
 - LinkedIn: [Praises Musa Tula](https://www.linkedin.com/in/praises-tula-9233aa76)
+  **Idowu David**
+- GitHub: [@Idowu-David](https://github.com/Idowu-David)
+- Twitter: [@IdowuDavid08](htps://twitter.com/IdowuDavid08)
+- LinkedIn: [David Idowu]

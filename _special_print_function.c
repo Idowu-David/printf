@@ -74,3 +74,39 @@ int  print_revStr(va_list argument)
 
 	return (revStrPrtCount);
 }
+
+/**
+ * print_rot13 - Print Integer
+ * @argument: Argument rot13 to be processed
+ *
+ * Return: Number of rot13 characters printed
+ */
+
+int print_rot13(va_list argument)
+{
+	int locIndexA, locIndexB, rot13PrtCount;
+	char *string;
+
+	char charArrA[] = "aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZ";
+	char charArrB[] = "nNoOpPqQrRsStTuUvVwWxXyYzZaAbBcCdDeEfFgGhHiIjJkKlLmM";
+	string = va_arg(argument, char *);
+	rot13PrtCount = 0;
+	for (locIndexA = locIndexB = 0; string[locIndexA] != '\0'; locIndexA++)
+	{
+		for (locIndexA = 0; locIndexA <= 53; locIndexA++)
+		{
+			if (string[locIndexA] == charArrA[locIndexB])
+			{
+				rot13PrtCount += _putchar(charArrB[locIndexB]);
+				break;
+			}
+			if (locIndexB == 53)
+			{
+				rot13PrtCount += _putchar(string[locIndexA]);
+			}
+		}
+
+	}
+
+	return (rot13PrtCount);
+}

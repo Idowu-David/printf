@@ -40,18 +40,18 @@ int _printf(const char *format, ...)
  */
 int validate_format(const char *format, va_list arg, formatType *specStruct)
 {
-	int indexA = 0, indexB = 0, prtCount = 0;
+	int i = 0, indexB = 0, prtCount = 0;
 
-	while (format && format[indexA])
+	while (format && format[i])
 	{
-		if (format[indexA] == '%' && format[indexA + 1] == '\0')
+		if (format[i] == '%' && format[i + 1] == '\0')
 			return (-1);
-		if (format[indexA] == '%' && (format[indexA + 1] == ' ' || format[indexA + 1] != '%'))
-                {
-			if (format[indexA + 1] == ' ')
+		if (format[i] == '%' && (format[i + 1] == ' ' || format[i + 1] != '%'))
+		{
+			if (format[i + 1] == ' ')
 			{
-				while (format[indexA + 1] == ' ')
-					indexA++;
+				while (format[i + 1] == ' ')
+					i++;
 			}
 			while (indexB < 7)
 			{
@@ -65,15 +65,15 @@ int validate_format(const char *format, va_list arg, formatType *specStruct)
 			if (indexB == 6)
 				prtCount += _putchar('%');
 		}
-		else if (format[indexA] == '%' && format[indexA + 1] == '%')
+		else if (format[i] == '%' && format[i + 1] == '%')
 		{
 			prtCount += _putchar('%');
-			indexA++;
+			i++;
 		}
 		else
 		{
-			prtCount += _putchar(format[indexA]);
-		} indexA++, indexB = 0;
+			prtCount += _putchar(format[i]);
+		} i++, indexB = 0;
 	}
 	return (prtCount);
 }

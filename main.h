@@ -39,4 +39,6 @@ int print_int(va_list argument);
 /* Type Print Special Functions */
 int print_bin(va_list argument);
 int prnt_revStr(va_list argument);
+int print_rot13(va_list argument);
+
 #endif

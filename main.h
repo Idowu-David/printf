@@ -35,4 +35,8 @@ int validate_format(const char *format, va_list arg, formatType *specStruct);
 int print_char(va_list argument);
 int print_str(va_list argument);
 int print_int(va_list argument);
+
+/* Type Print Special Functions */
+int print_bin(va_list argument);
+
 #endif

@@ -1,11 +1,14 @@
 #ifndef _MAIN_H
 #define _MAIN_H
+
 /* All Standard Libraries */
 #include <stdio.h>
 #include <unistd.h>
 #include <stdarg.h>
 #include <limits.h>
 #include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
 
 /* Type Definition of Structure */
 /**
@@ -40,5 +43,6 @@ int print_int(va_list argument);
 int print_bin(va_list argument);
 int print_revStr(va_list argument);
 int print_rot13(va_list argument);
+char rotate(char c, int key);
 
 #endif

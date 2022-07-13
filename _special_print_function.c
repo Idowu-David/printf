@@ -84,29 +84,49 @@ int  print_revStr(va_list argument)
 
 int print_rot13(va_list argument)
 {
-	int locIndexA, locIndexB, rot13PrtCount;
+	int rot13PrtCount;
+	size_t index;
 	char *string;
+	char encrypt;
 
-	char charArrA[] = "aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZ";
-	char charArrB[] = "nNoOpPqQrRsStTuUvVwWxXyYzZaAbBcCdDeEfFgGhHiIjJkKlLmM";
 	string = va_arg(argument, char *);
 	rot13PrtCount = 0;
-	for (locIndexA = locIndexB = 0; string[locIndexA] != '\0'; locIndexA++)
+	for (index = 0; index < strlen(string); index++)
 	{
-		for (locIndexA = 0; locIndexA <= 53; locIndexA++)
-		{
-			if (string[locIndexA] == charArrA[locIndexB])
-			{
-				rot13PrtCount += _putchar(charArrB[locIndexB]);
-				break;
-			}
-			if (locIndexB == 53)
-			{
-				rot13PrtCount += _putchar(string[locIndexA]);
-			}
-		}
-
+		encrypt = rotate(string[index], 13);
+		rot13PrtCount += _putchar(encrypt);
 	}
-
 	return (rot13PrtCount);
+}
+
+/**
+ * rotate - Encrypt a character by rotation
+ * @c: Character to be encrypted
+ * @key: Key to encrypt or rotate the character
+ *
+ * Return: Encrypted character
+ */
+
+char rotate(char c, int key)
+{
+	if (islower(c))
+	{
+		if (c + key > 'z')
+		{
+			return (((c + key) - 'z') + 96);
+		}
+		return (c + key);
+	}
+	else if (isupper(c))
+	{
+		if (c + key > 'Z')
+		{
+			return (((c + key) - 'Z') + 64);
+		}
+		return (c + key);
+	}
+	else
+	{
+		return (c);
+	}
 }

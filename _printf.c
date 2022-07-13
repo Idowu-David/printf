@@ -55,10 +55,10 @@ int validate_format(const char *format, va_list arg, formatType *specStruct)
 			}
 			while (indexB < 7)
 			{
-				if (specStruct[indexB].specifier[0] == format[indexA + 1])
+				if (specStruct[indexB].specifier[0] == format[i + 1])
 				{
 					prtCount += specStruct[indexB].print_func(arg);
-					indexA++;
+					i++;
 					break;
 				} indexB++;
 			}
